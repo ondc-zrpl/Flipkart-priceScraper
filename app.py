@@ -22,17 +22,17 @@ def get_product_details(pid, lid):
     soup = BeautifulSoup(response.content, 'html.parser')
 
     # Product name
-    product_name = soup.find('span', {'class': 'B_NuCI'}).text
+    product_name = soup.find('span', {'class': 'VU-ZEz'}).text
 
     # Product Price
-    price_tag = soup.find('div', {'class': '_30jeq3 _16Jk6d'})
+    price_tag = soup.find('div', {'class': 'Nx9bqj CxhGGd'})
     product_price = '0'
     if price_tag:
         product_price = price_tag.text.replace('₹', '').replace(',', '')
         product_price = float(product_price)
 
     # Image URL
-    image_tag = soup.find('img', {'class': '_396cs4'})
+    image_tag = soup.find('img', {'class': 'DByuf4 IZexXJ jLEJ7H'})
     image_url = ''
     if image_tag and 'src' in image_tag.attrs:
         image_url = image_tag['src']
