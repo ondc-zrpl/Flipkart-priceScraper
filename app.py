@@ -18,6 +18,10 @@ def get_product_details(pid, lid):
     url = f'https://www.flipkart.com/brooks-launch-9-running-shoes-men/p/itmc1fa98405e951?pid={pid}&lid={lid}'
     response = requests.get(url, headers=headers)
     print("response is", response)
+    if response.status_code != 200:
+        return {
+            'error': f"Request failed with status code {response.status_code}."
+        }    
 
     soup = BeautifulSoup(response.content, 'html.parser')
 
